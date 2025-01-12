@@ -1,0 +1,2064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT (Open-source intelligence)</title>
+    <style>
+        /* Estilo geral para tema escuro */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #121212; /* Fundo escuro */
+            color: white; /* Texto branco */
+        }
+    
+        h2, h3 {
+            color: #e0e0e0; /* Cor dos títulos */
+        }
+    
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1); /* Sombras mais sutis */
+        }
+    
+        th, td {
+            border: 1px solid #444; /* Bordas da tabela */
+            padding: 8px;
+            text-align: left;
+        }
+    
+        th {
+            background-color: #1f1f1f; /* Cor do cabeçalho da tabela */
+            color: #ffffff; /* Cor do texto do cabeçalho */
+        }
+    
+        tr:nth-child(even) {
+            background-color: #1a1a1a; /* Linhas alternadas */
+        }
+    
+        tr:hover {
+            background-color: #333; /* Efeito hover nas linhas */
+        }
+    
+        details {
+            margin: 10px 0;
+        }
+    
+        summary {
+            cursor: pointer;
+            outline: none;
+            font-weight: bold; /* Resalta o texto do resumo */
+            background-color: #1f1f1f; /* Fundo do resumo */
+            padding: 10px; /* Padding para o resumo */
+            border-radius: 5px; /* Bordas arredondadas */
+        }
+    
+        summary:hover {
+            background-color: #333; /* Efeito hover no resumo */
+        }
+    </style>
+</head>
+<body>
+
+<h1>OSINT (Open-source intelligence)</h1>
+<h4>Site upado e melhorado por mim (w3irdguy) - coleção de sites feito pelo pessoal do <a href="https://github.com/osintbrazuca/osint-brazuca/" target="_blank">osintbrazuca</a></h4>
+
+<strong>Conteúdo:</strong>
+<ul>
+    <li><a href="#beneficios-sociais">Benefícios Sociais</a></li>
+    <li><a href="#pessoas-desaparecidas">Pessoas Desaparecidas</a></li>
+    <li><a href="#consulta-processos">Consulta de Processos</a></li>
+    <li><a href="#busca-cpf-cnpj-crm-cna">Busca de Informações via CPF/CNPJ/CRM/CNA</a></li>
+    <li><a href="#telecom">Telecom</a></li>
+    <li><a href="#estacoes-radio-erbs">Estação Rádio Base - ERBs</a></li>
+    <li><a href="#informacoes-academicas">Informações Acadêmicas</a></li>
+    <li><a href="#mapas-geo">Mapas e Georreferenciamento</a></li>
+    <li><a href="#saude">Saúde</a></li>
+    <li><a href="#dorks">Motores de Busca Contexto Brasil</a></li>
+    <li><a href="#redes-sociais">Rede Social</a></li>
+    <li><a href="#indexador-mensagens">Indexadores de Serviço de Mensagens Instantâneas</a></li>
+    <li><a href="#datasets">Datasets / Dados Abertos</a></li>
+    <li><a href="#consulta-transporte-terrestre">Consulta de Transporte Terrestre</a></li>
+    <li><a href="#tracking-viagens-onibus">Tracking de Viagens de Ônibus</a></li>
+    <li><a href="#consulta-transporte-aereo">Consulta de Transporte Aéreo</a></li>
+    <li><a href="#cameras-online">Câmeras Online</a></li>
+    <li><a href="#outras-buscas">Outras Buscas</a></li>
+    <li><a href="#dominios-br">Categorias de Domínios .br</a></li>
+    <li><a href="#estados-br">Categorias por Estados Brasileiros</a></li>
+    <li><a href="#autores">Autores</a></li>
+    <li><a href="#contribuicoes">Contribuições</a></li>
+    <li><a href="#creditos">Créditos</a></li>
+</ul>
+
+<section id="beneficios-sociais">
+    <h2>Benefícios sociais (Políticas Públicas) 📑</h2>
+    <h3>Consulta Benefícios Sociais</h3>
+    <p>As famílias atendidas pelo Programa Bolsa Família devem entregar o extrato bancário de pagamento do benefício, juntamente com a consulta pública do programa “bolsa família”.
+        <a href="https://www.beneficiossociais.caixa.gov.br/consulta/beneficio/04.01.00-00_00.asp" target="_blank">Clique aqui para consultar.</a>
+    </p>
+
+    <h3>Consulta ao Auxílio Emergencial</h3>
+    <p>Canal para consulta ao resultado da análise do Auxílio Emergencial.
+        <a href="https://consultaauxilio.cidadania.gov.br/consulta/#/" target="_blank">Clique aqui para consultar.</a>
+    </p>
+
+    <h3>Comprovante Situação Cadastral de Pessoa Jurídica</h3>
+    <p>Comprovante de Inscrição e de Situação Cadastral de Pessoa Jurídica, obtido por meio de consulta no endereço eletrônico:
+        <a href="http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/cnpjreva/Cnpjreva_Solicitacao.asp" target="_blank">Clique aqui para consultar.</a>
+    </p>
+
+    <h3>Extrato do Benefício de Prestação Continuada (INSS)</h3>
+    <p>Site com informações (ainda indefinidas).</p>
+    <!-- Complete as informações conforme necessário -->
+
+    <h3>Consulta de Valores a Receber do Sistema Financeiro</h3>
+    <p>Consulta para saber se a Pessoa Física ou Jurídica possuem valores a receber no Sistema Financeiro.
+        <a href="https://valoresareceber.bcb.gov.br/publico/" target="_blank">Clique aqui para consultar.</a>
+    </p>
+
+    <p>Via Requisição GET, substituir os zeros pelo CPF ou CNPJ sem pontos ou traços, e a data de nascimento no formato ANO-MES-DIA: 
+        <a href="https://valoresareceber.bcb.gov.br/publico/rest/valoresAReceber/00000000000/1960-12-01" target="_blank">Clique aqui para exemplo.</a>
+    </p>
+</section>
+
+<section id="pessoas-desaparecidas">
+    <h2>Pessoas Desaparecidas 🔍</h2>
+    <h3>Portais de Desaparecidos</h3>
+    <p>Uma relação de links com dados sobre desaparecidos, gerida por estados ou ONGs, que permitem consulta pela internet:</p>
+    <details>
+        <summary>Portais de Desaparecidos</summary>
+        <ul>
+            <li><a href="https://desaparecidos.pcivil.rj.gov.br/pesquisar" target="_blank">Polícia Civil RJ</a></li>
+            <li><a href="https://www.desaparecidos.pr.gov.br/desaparecidos/" target="_blank">Polícia Civil PR</a></li>
+            <li><a href="https://www.pc.rs.gov.br/desaparecidos" target="_blank">Polícia Civil RS</a></li>
+            <li><a href="https://desaparecidos.pjc.mt.gov.br/inicio" target="_blank">Polícia Civil MT</a></li>
+            <li><a href="https://carapicuiba.sp.gov.br/desaparecido" target="_blank">Carapicuíba SP</a></li>
+            <li><a href="https://desaparecidos.policiacivil.mg.gov.br/desaparecido/album" target="_blank">Polícia Civil MG</a></li>
+            <li><a href="https://desaparecidosdobrasil.org/pesquisar-desaparecidos/" target="_blank">Desaparecidos do Brasil</a></li>
+            <li><a href="https://www.pcdf.df.gov.br/servicos/desaparecidos" target="_blank">PCDF</a></li>
+            <li><a href="https://www.ssp.ma.gov.br/disque-denuncia/desaparecidos/" target="_blank">Disque Denúncia MA</a></li>
+            <li><a href="https://desaparecidos.pc.sc.gov.br/#/" target="_blank">Polícia Civil SC</a></li>
+            <li><a href="https://www.pm.sc.gov.br/sos-desaparecidos/default/index?sort=-desaparecido_desaparecimento_data" target="_blank">SOS Desaparecidos SC</a></li>
+            <li><a href="http://www.policiacivil.pe.gov.br/adultos-desaparecidos" target="_blank">Polícia Civil PE</a></li>
+            <li><a href="https://www2.bauru.sp.gov.br/desaparecidos/" target="_blank">Bauru SP</a></li>
+            <li><a href="https://desaparecidos.osasco.sp.gov.br/#/portal" target="_blank">Osasco SP</a></li>
+            <li><a href="https://www.pm.ce.gov.br/desaparecidos/" target="_blank">PM CE</a></li>
+            <li><a href="https://desaparecidos.pb.gov.br/desaparecidos/desaparecidos.jsf" target="_blank">PB</a></li>
+            <li><a href="https://desaparecidos.pr.gov.br/desaparecidos/desaparecidos.do?action=iniciarProcesso&m=false" target="_blank">PR</a></li>
+            <li><a href="http://sisgou.seds.al.gov.br/base2/desaparecidos_almanaque/" target="_blank">AL</a></li>
+            <li><a href="http://www.feiradesantana.ba.gov.br/seprev/desaparecidos/desaparecidos.asp" target="_blank">Feira de Santana BA</a></li>
+            <li><a href="https://www.policiacivil.se.gov.br/desaparecidos/" target="_blank">SE</a></li>
+        </ul>
+    </details>
+
+    <h3>Busca por Desaparecidos Banco de Dados Geral / São Paulo</h3>
+    <p>É usado CPF da Pessoa Desaparecida como valor de pesquisa:
+        <a href="https://www.ssp.sp.gov.br/servicos/desaparecidos" target="_blank">Clique aqui para consultar.</a>
+    </p>
+
+    <h3>Busca por Desaparecidos Banco de Dados Polícia Científica / São Paulo</h3>
+    <p>É usado nome e CPF da Pessoa Desaparecida como valor de pesquisa:
+        <a href="https://www.policiacientifica.sp.gov.br/iml/consultadesaparecidos" target="_blank">Clique aqui para consultar.</a>
+    </p>
+</section>
+
+<section id="consulta-processos">
+    <h2>Consulta de Processos 🧑‍⚖️</h2>
+    <h3>Portal e-SAJ</h3>
+    <p>O portal e-SAJ é uma solução que visa facilitar a troca de informações e agilizar o trâmite processual:</p>
+    
+    <details>
+        <summary>Portais TJ</summary>
+        <ul>
+            <li><a href="https://esaj.tjac.jus.br/esaj/portal.do?servico=190090#" target="_blank">TJ do Acre</a></li>
+            <li><a href="https://www.tjba.jus.br/portal/busca-resultado/#" target="_blank">TJ da Bahia</a></li>
+            <li><a href="https://esaj.tjce.jus.br/esaj/portal.do?servico=190090#" target="_blank">TJ do Ceará</a></li>
+            <li><a href="https://esaj.tjsc.jus.br/esaj/portal.do?servico=190090#" target="_blank">TJ de Santa Catarina</a></li>
+            <li><a href="https://esaj.tjsp.jus.br/esaj/portal.do?servico=190090#" target="_blank">TJ de São Paulo</a></li>
+            <li><a href="http://esaj.tjac.jus.br/esaj/portal.do?servico=190090#" target="_blank">TJ do Acre - Alternativo</a></li>
+            <li><a href="http://esaj.tjam.jus.br/esaj/portal.do?servico=190090#" target="_blank">TJ do Amazonas</a></li>
+            <li><a href="http://esaj.tjce.jus.br/esaj/portal.do?servico=190090#" target="_blank">TJ do Ceará - Alternativo</a></li>
+        </ul>
+    </details>
+
+    <h3>Banco Nacional de Mandados de Prisão</h3>
+    <p>Consulta ao Banco Nacional de Mandados de Prisão:
+        <a href="https://portalbnmp.cnj.jus.br/#/pesquisa-peca" target="_blank">Clique aqui para consultar.</a>
+    </p>
+
+    <h3>Portais de Tribunais Regionais Federal (TRF)</h3>
+    <p>Links para os portais dos TRFs:</p>
+    <ul>
+        <li><a href="https://portal.trf1.jus.br" target="_blank">TRF 1</a></li>
+        <li><a href="https://portal.trf2.jus.br" target="_blank">TRF 2</a></li>
+        <li><a href="https://portal.trf5.jus.br" target="_blank">TRF 5</a></li>
+    </ul>
+
+    <h3>JusBrasil</h3>
+    <p>Informações sobre justice no Brasil:
+        <a href="https://www.jusbrasil.com.br/" target="_blank">Clique aqui para acessar.</a>
+    </p>
+
+    <h3>Escavador</h3>
+    <p>Busque e acompanhe informações relevantes:
+        <a href="https://www.escavador.com/" target="_blank">Clique aqui para acessar.</a>
+    </p>
+
+    <h3>ABRAJI - Publique-se</h3>
+    <p>Descubra processos judiciais que citam políticos:
+        <a href="https://www.publique-se.org.br/" target="_blank">Clique aqui para acessar.</a>
+    </p>
+</section>
+
+<section id="busca-cpf-cnpj-crm-cna">
+    <h2>Busca de Informações via CPF/CNPJ/CRM/CNA 🔭</h2>
+    <h3>Busca Dados Usando CNPJ</h3>
+    <details>
+        <summary>Links de Consulta</summary>
+        <ul>
+            <li><a href="http://servicos.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp" target="_blank">Receita Federal - CNPJ</a></li>
+            <li><a href="https://brasilcnpj.net/" target="_blank">Brasil CNPJ</a></li>
+            <li><a href="https://cnpj.biz/" target="_blank">CNPJ.biz</a></li>
+            <li><a href="https://cadastroempresa.com.br/" target="_blank">Cadastro de Empresas</a></li>
+            <li><a href="https://casadosdados.com.br/" target="_blank">Casa dos Dados</a></li>
+            <li><a href="https://cnpjs.rocks/" target="_blank">CNPJ Rocks</a></li>
+            <li><a href="https://www.informecadastral.com.br/" target="_blank">Informe Cadastral</a></li>
+            <li><a href="https://www.situacaocadastral.info/" target="_blank">Situação Cadastral</a></li>
+            <li><a href="http://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21" target="_blank">Simples Nacional</a></li>
+        </ul>
+    </details>
+
+    <h3>Automação de Força Bruta para Encontrar CPF e Nome Completo</h3>
+    <p>Repositório com ferramentas para manipulação e consulta de CPFs:
+        <a href="https://github.com/fernandobortotti/CPF-Tools" target="_blank">Clique aqui para acessar o repositório.</a>
+    </p>
+
+    <h3>Busca Nome Usando CPF/CNPJ</h3>
+    <p>Descubra a situação cadastral usando CPF/CNPJ:
+        <a href="https://www.situacao-cadastral.com/" target="_blank">Clique aqui para acessar.</a>
+    </p>
+
+    <h3>Retornando Nome Completo CPF/CNPJ</h3>
+    <p>Consulte Certidão Eletrônica de Ações Trabalhistas:
+        <a href="https://sistemas.trt3.jus.br/certidao/feitosTrabalhistas/aba1.emissao.htm" target="_blank">Clique aqui para acessar.</a>
+    </p>
+
+    <h3>Visualização de Dados Públicos de CNPJ</h3>
+    <p>Observar relacionamentos entre empresas e sócios:
+        <a href="https://www.redecnpj.com.br/rede/" target="_blank">Clique aqui para acessar.</a>
+    </p>
+
+    <h3>Consulta de Antecedente Criminal</h3>
+    <p>Gere um documento válido com a consulta:
+        <a href="https://antecedentes.policiacivil.pa.gov.br/consulta" target="_blank">Clique aqui para acessar.</a>
+    </p>
+
+    <h3>Consulta Cadastro Nacional dos Advogados (CNA)</h3>
+    <p>Consulta no repositório de advogados do Brasil:
+        <a href="https://cna.oab.org.br" target="_blank">Clique aqui para acessar.</a>
+    </p>
+
+    <h3>Consulta Conselho Federal de Medicina (CFM)</h3>
+    <p>Consulta no repositório de médicos do Brasil:
+        <a href="https://portal.cfm.org.br/busca-medicos/" target="_blank">Clique aqui para acessar.</a>
+    </p>
+
+    <h3>Consulta Conselho Federal de Psicologia (CFP)</h3>
+    <p>Consulta no repositório de psicólogos do Brasil:
+        <a href="https://cadastro.cfp.org.br" target="_blank">Clique aqui para acessar.</a>
+    </p>
+
+    <h3>Consulta Conselho Federal de Engenharia e Agronomia (Confea)</h3>
+    <p>Consulta no repositório de profissões do sistema Confea/Crea:
+        <a href="https://consultaprofissional.confea.org.br" target="_blank">Clique aqui para acessar.</a>
+    </p>
+
+    <h3>Consulta MEI</h3>
+    <p>Consulta informações do cadastro MEI:
+        <a href="http://www22.receita.fazenda.gov.br/inscricaomei/private/pages/certificado_acesso.jsf" target="_blank">Clique aqui para acessar.</a>
+    </p>
+
+    <h3>Declaração do Simples Nacional</h3>
+    <p>Consulta de declaração do simples nacional:
+        <a href="http://www8.receita.fazenda.gov.br/SimplesNacional/Aplicacoes/ATSPO/dasnsimei.app/Default.aspx" target="_blank">Clique aqui para acessar.</a>
+    </p>
+
+    <h3>Consulta Comunicação de Decisão do Requerimento/Benefício</h3>
+    <p>Consulta de status de requisição de aposentadoria do INSS:
+        <a href="https://www2.dataprev.gov.br/sabiweb/relatorio/imprimirCRER.view?acao=imprimir_CRER" target="_blank">Clique aqui para acessar.</a>
+    </p>
+
+    <h3>Consulta Restituição do Imposto de Renda</h3>
+    <p>Consulta de informações da restituição do Imposto de Renda:
+        <a href="http://solucoes.receita.fazenda.gov.br/Servicos/ConsRest/Atual.app/paginas/mobile/restituicaoMobi.asp" target="_blank">Clique aqui para acessar.</a>
+    </p>
+
+    <h3>Consulta Junta Comercial do Estado de São Paulo (Jucesp)</h3>
+    <p>Consulta no banco de dados da Junta Comercial:
+        <a href="https://www.jucesponline.sp.gov.br/Pre_Visualiza.aspx?nire={VALOR}&idproduto=" target="_blank">Clique aqui para acessar.</a>
+    </p>
+
+    <h3>Consulta Entrevistador do IBGE</h3>
+    <p>Consultar informações sobre entrevistadores do IBGE:
+        <a href="https://respondendo.ibge.gov.br/verifique-a-identidade-do-entrevistador.html" target="_blank">Clique aqui para acessar.</a>
+    </p>
+</section>
+
+<section id="telecom">
+    <h2>Telecom 📡</h2>
+    <h3>Busca Através do IMEI/Legalidade do Aparelho</h3>
+    <p>Consulta a situação de aparelhos celulares:
+        <a href="https://www.consultaaparelhoimpedido.com.br/public-web/welcome" target="_blank">Clique aqui para consultar.</a>
+    </p>
+
+    <h3>Busca de Situação Cadastro / Portabilidade de Números Celulares e Fixos</h3>
+    <ul>
+        <li><a href="https://consultanumero.abrtelecom.com.br/consultanumero/consulta/consultaSituacaoAtualCtg" target="_blank">Consulta de Números Celulares</a></li>
+        <li><a href="https://consultanumero.abrtelecom.com.br/consultanumero/consulta/consultaHistoricoRecenteCtg" target="_blank">Histórico Recente</a></li>
+    </ul>
+
+    <h3>Busca Operadora por Número Celular</h3>
+    <p>Descubra a operadora por número de celular:</p>
+        <a href="https://consultanumero.info/" target="_blank">Clique aqui para consultar o 1.</a>
+        <br><a href="https://www.qualaoperadora.net/" target="_blank">Clique aqui para consultar o 2.</a></br>
+        <a href="https://consultaoperadora.com.br/2015" target="_blank">Clique aqui para consultar o 3.</a>
+    </p>
+    <h3>Busca Operadora / Linha pré ativa por CFP</h3>
+    <p>Descubra a operadora por número de celular:</p>
+        <a href="https://cadastropre.com.br/#/consulta" target="_blank">Clique aqui para consultar.</a>
+    </p>
+    <h3>Base Orelhão X Mapa</h3>
+    <p>Descubra a operadora por número de celular:</p>
+        <a href="http://sistemas.anatel.gov.br/sgmu/fiqueligado/tups.asp" target="_blank">Clique aqui para consultar.</a>
+    </p>
+    <h3>Mapas de Cobertura das Operadoras</h3>
+    <p>Consulte a cobertura de rede:
+        <a href="https://mapadecobertura.vivo.com.br/" target="_blank">Vivo</a> | 
+        <a href="https://www.claro.com.br/mapa-de-cobertura" target="_blank">Claro</a> | 
+        <a href="https://www.tim.com.br/para-voce/cobertura-e-roaming/mapa-de-cobertura" target="_blank">TIM</a> | 
+        <a href="https://www.oi.com.br/portal-oi-cobertura/" target="_blank">Oi</a>
+    </p>
+    <h3>Consultar responsável por um indicativo</h3>
+    <p>Digite o indicativo sem pontos ou traços:
+    <a href="https://sistemas.anatel.gov.br/easp/Novo/ConsultaIndicativo/Tela.asp" target="_blank">Clique aqui para consultar.</a>
+    </p>
+    <h3>Números Discagem Direta a Distância</h3>
+    <p>Descubra a operadora por número de celular:</p>
+        <a href="https://pt.wikipedia.org/wiki/Discagem_direta_a_dist%C3%A2ncia" target="_blank">Clique aqui para consultar o 1.</a>
+        <br><a href="https://www.mbi.com.br/mbi/biblioteca/utilidades/estado-onde-fica-ddd/" target="_blank">Clique aqui para consultar o 2.</a></br>
+    </p>
+    <h3>Mais informações sobre rádio amador:</h3>
+    <a href="https://araf.org.br/anatel-links-rapidos" target="_blank">Clique aqui para consultar.</a>
+    
+    <h3>Consultar e identificar Frequências de Rádios / SISTEMA DE SERVIÇOS DE TELECOMUNICAÇÕES (STEL)</h3>
+    <p>
+        <a href="https://sistemas.anatel.gov.br/stel/Consultas/RecuperacaoFrequencias/tela.asp?SISQSmodulo=9896" target="_blank">Consulta Frequências</a>
+    </p>
+</section>
+
+<section id="estacoes-radio-erbs">
+    <h2>Estação Rádio Base / ERBs 📻</h2>
+    <h3>Links de Consulta</h3>
+    <details>
+        <summary>Estação Rádio Base</summary>
+        <ul>
+            <li><a href="https://www.teleco.com.br/erb.asp" target="_blank">Teleco</a></li>
+            <li><a href="https://sistemas.anatel.gov.br/stel/consultas/ListaEstacoesLocalidade/tela.asp?pNumServico=010" target="_blank">ANATEL</a></li>
+            <li><a href="http://www.telecocare.com.br/telebrasil/mapa_erb.php" target="_blank">TeleBrasil Mapas</a></li>
+            <li><a href="https://conexis.org.br/numeros/mapa-de-antenas-2/" target="_blank">Conexis - Mapa de Antenas</a></li>
+            <li><a href="http://sistemas.anatel.gov.br/se/public/view/b/licenciamento.php" target="_blank">Licenciamento ANATEL</a></li>
+            <li><a href="http://sistemas.anatel.gov.br/siec-servico-movel-web/" target="_blank">SIEC</a></li>
+            <li><a href="https://dados.gov.br/dataset?tags=ERB" target="_blank">Dados Abertos - ERB</a></li>
+            <li><a href="https://www.google.com/maps/d/u/0/viewer?msa=0&mid=1Xh8EWBDY97vtLnEYuAVLvRGvu2o&ll=-16.816639560865948%2C-51.73607799999998&z=5" target="_blank">Mapa do Google - ERBs</a></li>
+            <li><a href="http://www.coberturacelular.com.br/" target="_blank">Cobertura Celular</a></li>
+            <li><a href="https://servicos.pc.sc.gov.br/antena/" target="_blank">SC - Estações</a></li>
+        </ul>
+    </details>
+</section>
+
+<section id="informacoes-academicas">
+    <h2>Informações Acadêmicas 📄</h2>
+    <h3>Buscar Currículo Lattes</h3>
+    <p>Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq):
+        <a href="https://buscatextual.cnpq.br/buscatextual/busca.do?metodo=apresentar" target="_blank">Clique aqui para buscar.</a>
+    </p>
+
+    <h3>Buscar Informações de Instituições de Ensino Superior</h3>
+    <p>Consultar informações via MEC:
+        <a href="https://emec.mec.gov.br/emec/nova#avancada" target="_blank">Clique aqui para buscar.</a>
+    </p>
+</section>
+
+<section id="mapas-geo">
+    <h2>Mapas e Georreferenciamento 🗺️</h2>
+    
+    <h3>Imagens de Satélite via inpe.br</h3>
+    <details>
+        <summary>Mapas INPE</summary>
+        <ul>
+            <li><a href="http://www.dgi.inpe.br/catalogo/" target="_blank">Catálogo INPE</a></li>
+            <li><a href="http://sigma.cptec.inpe.br/" target="_blank">CPTEC</a></li>
+            <li><a href="http://sigma2.cptec.inpe.br/" target="_blank">CPTEC 2</a></li>
+            <li><a href="http://sigma.cptec.inpe.br/radar/" target="_blank">CPTEC Radar</a></li>
+            <li><a href="http://sigma.cptec.inpe.br/prec_sat/" target="_blank">CPTEC Precipitação Satélite</a></li>
+            <li><a href="http://sigma.cptec.inpe.br/fortracc/" target="_blank">CPTEC Fortracc</a></li>
+            <li><a href="http://satelite.cptec.inpe.br/vento/" target="_blank">CPTEC Vento</a></li>
+            <li><a href="http://satelite.cptec.inpe.br/radiacao/" target="_blank">CPTEC Radiação</a></li>
+            <li><a href="http://terrabrasilis.dpi.inpe.br/app/map/alerts?hl=pt-br" target="_blank">Alertas TerraBrasilis</a></li>
+            <li><a href="http://terrabrasilis.dpi.inpe.br/app/map/deforestation?hl=pt-br" target="_blank">Desmatamento TerraBrasilis</a></li>
+            <li><a href="http://www2.dgi.inpe.br/catalogo/explore" target="_blank">Explorar DGI</a></li>
+            <li><a href="http://satelite.cptec.inpe.br/mapsat/" target="_blank">Mapas Satélite CPTEC</a></li>
+            <li><a href="http://sigma-soschuva.cptec.inpe.br/#" target="_blank">SOS Chuvas</a></li>
+            <li><a href="https://queimadas.dgi.inpe.br/queimadas/bdqueimadas" target="_blank">Banco de Queimadas</a></li>
+            <li><a href="https://queimadas.dgi.inpe.br/queimadas/portal-static/situacao-atual/" target="_blank">Situação Atual Queimadas</a></li>
+            <li><a href="https://queimadas.dgi.inpe.br/queimadas/portal/videoaulas" target="_blank">Videoaulas Queimadas</a></li>
+            <li><a href="https://queimadas.dgi.inpe.br/queimadas/mapas-mensais/" target="_blank">Mapas Mensais Queimadas</a></li>
+            <li><a href="http://www.dgi.inpe.br/CDSR/" target="_blank">CDSR DGI</a></li>
+            <li><a href="https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Farcgis.sema.df.gov.br%2Fserver%2Frest%2Fservices%2FAreas_Queimadas%2FMapServer&source=sd" target="_blank">Visualizador Áreas Queimadas</a></li>
+            <li><a href="https://arcgis.sema.df.gov.br/server/rest/services/Areas_Queimadas/MapServer" target="_blank">Serviço Áreas Queimadas</a></li>
+            <li><a href="https://www.cptec.inpe.br/dsat/" target="_blank">DSAT CPTEC</a></li>
+            <li><a href="http://mapas.sosma.org.br/" target="_blank">Mapas SOSMA</a></li>
+            <li><a href="http://www.inpe.br/webelat/homepage/" target="_blank">Homepage INPE</a></li>
+        </ul>
+    </details>
+
+    <h3>Sistema Nacional de Cadastro Ambiental Rural (SICAR-CAR)</h3>
+    <p>O SICAR é um sistema público de geoprocessamento que mapeia todas as propriedades rurais registradas com o CAR (Cadastro Ambiental Rural). Sendo o CAR um registro público, nacional e obrigatório à todas as propriedades rurais do Brasil, com a finalidade de formar uma base de dados e integrar informações.</p>
+    <ul>
+        <li><a href="https://www.car.gov.br/publico/imoveis/index" target="_blank">Consulta de Imóveis no CAR</a></li>
+        <li><a href="https://www.car.gov.br/#/consultar" target="_blank">Consultar CAR</a></li>
+    </ul>
+
+    <h3>Instituto do Patrimônio Histórico e Artístico Nacional (IPHAN) 🗿</h3>
+    <p>O SICG (Sistema Integrado de Conhecimento e Gestão) é o desenvolvimento de Inventários de Conhecimento, para formar uma base de informações sobre o patrimônio cultural de todo o Brasil.</p>
+    <ul>
+        <li><a href="https://sicg.iphan.gov.br/sicg/pesquisarBem" target="_blank">Pesquisar Bem no SICG</a></li>
+    </ul>
+
+    <h3>Rede de Meteorologia do Comando da Aeronáutica (REDEMET)</h3>
+    <p>A Rede de Meteorologia do Comando da Aeronáutica tem como objetivo integrar os produtos meteorológicos voltados à aviação civil e militar, visando tornar o acesso a estas informações mais rápido, eficiente e seguro.</p>
+    <ul>
+        <li><a href="https://redemet.decea.gov.br/#" target="_blank">Portal REDEMET</a></li>
+        <li><a href="https://redemet.decea.gov.br/novo/" target="_blank">Novo Portal REDEMET</a></li>
+    </ul>
+
+    <h3>Banco de Dados Geográficos do Exército (BDGEx)</h3>
+    <ul>
+        <li><a href="https://bdgex.eb.mil.br/bdgexapp/mobile/" target="_blank">Banco de Dados Geográficos</a></li>
+    </ul>
+
+    <h3>Radar de Aeronaves</h3>
+    <ul>
+        <li><a href="https://www.radarbox.com/@-19.21547,-46.45469,z5" target="_blank">RadarBox</a></li>
+        <li><a href="https://www.flightradar24.com/-18.82,-52.19/5" target="_blank">Flightradar24</a></li>
+        <li><a href="https://www.edestinos.com.br/radar" target="_blank">Edestinos Radar</a></li>
+        <li><a href="https://planefinder.net/airport/BSB" target="_blank">PlaneFinder</a></li>
+    </ul>
+
+    <h3>Consulta de Licença Aeronáutica (CHT)</h3>
+    <p>Todos os tripulantes civis brasileiros devem ser registrados na ANAC. Sendo validado o registro pelo seu Código Anac (CANAC).</p>
+    <ul>
+        <li><a href="https://sistemas.anac.gov.br/consultadelicencas/" target="_blank">Consultar Licenças ANAC</a></li>
+        <li><a href="https://ais.cavok.in/lichab/" target="_blank">Consulta de Licença no CHT</a></li>
+    </ul>
+
+    <h3>Cidades e Estados - IBGE - Instituto Brasileiro de Geografia e Estatística</h3>
+    <p>Consulta de dados por Cidades e Estados.</p>
+    <ul>
+        <li><a href="https://www.ibge.gov.br/cidades-e-estados/" target="_blank">Dados por Cidades e Estados</a></li>
+    </ul>
+</section>
+<section id="saude">
+    <h2>Saúde 🏥</h2>
+    <h3>Cadastro Nacional de Estabelecimentos de Saúde</h3>
+    <p>Informações acerca de estabelecimentos e profissionais de saúde:
+        <a href="https://cnes.datasus.gov.br/" target="_blank">Clique aqui para acessar.</a>
+    </p>
+
+    <h3>Fundo Nacional de Saúde (FNS)</h3>
+    <p>
+        <a href="https://consultafns.saude.gov.br/#/consolidada" target="_blank">Clique aqui para acessar.</a>
+    </p>
+</section>
+
+<section id="dorks">
+    <h2>Motores de Busca Contexto Brasil 🤖</h2>
+    
+    <h3>Exemplos de Google Hacking</h3>
+    <ul>
+        <li><code>site:com.br ext:sql "CREATE TABLE"</code><br><a href="https://www.google.com/search?q=site%3Acom.br+ext%3Asql+%22CREATE+TABLE%22" target="_blank">Buscar no Google</a></li>
+        <li><code>site:gov.br ext:pdf</code><br><a href="https://www.google.com/search?q=site%3Agov.br+ext%3Apdf" target="_blank">Buscar documentos PDF no Governo</a></li>
+        <li><code>site:federal.gov.br "seu_alvo"</code><br><a href="https://www.google.com/search?q=site:federal.gov.br+" target="_blank">Buscar no Google</a></li>
+    </ul>
+
+    <h3>Google Hacking: DataLeak/SQL</h3>
+    <ul>
+        <li>site:com.br ext:sql "CREATE TABLE" 
+            <a href="https://www.google.com/search?q=site%3Acom.br+ext%3Asql+%22CREATE+TABLE%22" target="_blank">Link para Pesquisa</a>
+        </li>
+        <li>site:com.br intext:"phpMyAdmin" ext:txt 
+            <a href="https://www.google.com/search?q=site%3Acom.br+intext%3A%22phpMyAdmin%22+ext%3Atxt" target="_blank">Link para Pesquisa</a>
+        </li>
+    </ul>
+
+    <h3>Google Hacking: Documento em Arquivos</h3>
+    <ul>
+        <li>cpf "SEU_ALVO" ext:txt 
+            <a href="https://www.google.com/search?q=cpf+%22SE_ALVO%22+%22123456789%22+ext" target="_blank">Link para Pesquisa</a>
+        </li>
+        <li>"cpf|cnpj|email|rg|contato" ext:xls "SEU_ALVO" 
+            <a href="https://www.google.com/search?q=%22cpf%7Ccnpj%7Cemail%7Crg%7Ccontato%22+ext%3Axls+%22SE_ALVO%22" target="_blank">Link para Pesquisa</a>
+        </li>
+    </ul>
+
+    <h3>Google Hacking: Sites do Governo</h3>
+    <p>Adicione sua string alvo para direcionar a busca.</p>
+    <ul>
+        <li>site:mil.br 
+            <a href="https://www.google.com/search?q=site%3Amil.br" target="_blank">Link para Pesquisa</a>
+        </li>
+        <li>site:gov.br 
+            <a href="https://www.google.com/search?q=site%3Agov.br" target="_blank">Link para Pesquisa</a>
+        </li>
+    </ul>
+
+    <h3>Google Hacking: Documentos em Sites do Governo</h3>
+    <p>Adicione sua string alvo para direcionar a busca.</p>
+    <ul>
+        <li>site:mil.br ext:pdf 
+            <a href="https://www.google.com/search?q=site%3Amil.br" target="_blank">Link para Pesquisa</a>
+        </li>
+        <li>site:gov.br ext:xls 
+            <a href="https://www.google.com/search?q=site%3Agov.br" target="_blank">Link para Pesquisa</a>
+        </li>
+        <li>inurl:"mil.br" ext:php 
+            <a href="https://www.google.com/search?q=inurl:%22mil.br%22+ext:php" target="_blank">Link para Pesquisa</a>
+        </li>
+    </ul>
+
+    <h3>Google Hacking: Informações Expostas</h3>
+    <p>Adicione sua string alvo para direcionar a busca.</p>
+    <ul>
+        <li>site:anonfiles.com "SE_ALVO" 
+            <a href="https://www.google.com/search?q=site%3Aanonfiles.com+%22SE_ALVO%22" target="_blank">Link para Pesquisa</a>
+        </li>
+        <li>site:docs.google.com "SEU_ALVO" 
+            <a href="https://www.google.com/search?q=site%3Adocs.google.com+%22SEU_ALVO%E2%80%9D" target="_blank">Link para Pesquisa</a>
+        </li>
+        <li>site:facebook.com "SEU_ALVO" 
+            <a href="https://www.google.com/search?q=site%3Afacebook.com+%22SEU_ALVO%22" target="_blank">Link para Pesquisa</a>
+        </li>
+        <li>site:pastebin.com "SEU_ALVO" 
+            <a href="https://www.google.com/search?q=site%3Apastebin.com+%22nubank%22" target="_blank">Link para Pesquisa</a>
+        </li>
+    </ul>
+
+    <h3>Google Hacking: Filtrar Empresa via Linkedin</h3>
+    <p>Adicione sua string alvo para direcionar a busca.</p>
+    <ul>
+        <li>site:linkedin.com "at EMPRESA_ALVO" 
+            <a href="https://www.google.com/search?q=site%3Alinkedin.com+%22at+EMPRESA_ALVO%22" target="_blank">Link para Pesquisa</a>
+        </li>
+    </ul>
+
+    <h3>Google Hacking: Filtrar Grupos WhatsApp em Sites .br</h3>
+    <ul>
+        <li>"https://chat.whatsapp.com/" & site:br 
+            <a href="https://www.google.com/search?q=%22https%3A%2F%2Fchat.whatsapp.com%2F%22+%26+site%3Abr" target="_blank">Link para Pesquisa</a>
+        </li>
+    </ul>
+
+    <h3>Google Hacking: Filtrar Grupos Telegram + Contexto da String</h3>
+    <ul>
+        <li>inurl:"https://t.me" site:me "SEU_ALVO" 
+            <a href="https://www.google.com/search?q=inurl%3A%22https%3A%2F%2Ft.me%22+site%3Ame+%22SEU_ALVO%22" target="_blank">Link para Pesquisa</a>
+        </li>
+        <li>site:me "joinchat" "SEU_ALVO" 
+            <a href="https://www.google.com/search?q=site%3Ame+%22joinchat%22+%22Bolsonaro%22" target="_blank">Link para Pesquisa</a>
+        </li>
+    </ul>
+
+    <h3>Google Hacking: Identificar PowerBI Exposto</h3>
+    <ul>
+        <li>site:app.powerbi.com/view?r intext:"br" 
+            <a href="https://www.google.com/search?q=site%3Aapp.powerbi.com%2Fview%3Fr+intext%3A%22br%22" target="_blank">Link para Pesquisa</a>
+        </li>
+        <li>site:app.powerbi.com/view?r intext:"brasil" 
+            <a href="https://www.google.com/search?q=site%3Aapp.powerbi.com%2Fview%3Fr+intext%3A%22brasil%22" target="_blank">Link para Pesquisa</a>
+        </li>
+    </ul>
+
+    <h3>Shodan: Busca de Servidores Brasileiros</h3>
+    <p>Shodan é um mecanismo de pesquisa que permite ao usuário encontrar tipos específicos de computadores conectados à Internet usando uma variedade de filtros.</p>
+    <ul>
+        <li>country:"BR" 
+            <a href="https://www.shodan.io/search?query=country%3A%22BR%22" target="_blank">Link para Pesquisa</a>
+        </li>
+    </ul>
+</section>
+
+<section id="redes-sociais">
+    <h2>Rede Social 👥</h2>
+    
+    <h3>LinkedIn</h3>
+    <p>Recurso para busca por empregos:
+        <a href="https://www.linkedin.com/jobs/search/?keywords=SEU_ALVO&location=Brasil" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Twitter</h3>
+    <p>Faça sua busca:
+        <a href="https://twitter.com/search-advanced" target="_blank">Clique aqui.</a>
+    </p>
+    
+    <h3>OmniSci Tweetmap Demo</h3>
+    <p>
+        <a href="https://www.omnisci.com/demos/tweetmap" target="_blank">Demonstração do Tweetmap</a>
+    </p>
+    
+    <h3>Maptimize Demo Sentiment Analysis on Tweets 🤖</h3>
+    <p>
+        <a href="https://onemilliontweetmap.com/?center=-18.79191774423444,-39.33105468750001&zoom=5&search=SEU_ALVO" target="_blank">Demonstração do Tweetmap</a>
+    </p>
+    
+    <h3>TweetStats Graficamente 📈</h3>
+    <p>
+        <a href="https://www.tweetstats.com/graphs/PERFIL_ALVO" target="_blank">Representando graficamente suas estatísticas do Twitter</a>
+    </p>
+    
+    <h3>Trend24 Trends e buscas locais e global 🌎</h3>
+    <p>
+        <a href="https://trends24.in/SEU_ALVO/" target="_blank">Uma ferramenta para capturando pensamentos e emoções da população do Twitter</a>
+    </p>
+    
+    <h3>Snap Map 🗺️</h3>
+    <p>
+        <a href="https://map.snapchat.com/@-15.127315,-51.412151,4.51z" target="_blank">Demonstração da mapa da Snap</a>
+    </p>
+    
+    <h3>Facebook Biblioteca de Anúncios 📊</h3>
+    <p>
+        <a href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&media_type=all" target="_blank">Biblioteca de anúncios</a>
+    </p>
+    
+    <h3>Procurador de redes sociais 🔍</h3>
+    <p>
+        <a href="https://www.social-searcher.com/search-users/?q6=NOME+SOBRENOME" target="_blank">Uma ferramenta que busca redes sociais como Linkedin, Instagram e Facebook</a>
+    </p>
+    
+    <h3>UVRX buscador de redes sociais 🔍</h3>
+    <p>
+        <a href="http://www.uvrx.com/social.html" target="_blank">Um site que utiliza a busca do Google para fazer uma pesquisa mais avançada em redes sociais</a>
+    </p>
+    
+    <h3>OSINT Steam 💻</h3>
+    <p>
+        <a href="https://osint-steam.vercel.app/pt" target="_blank"> Uma ferramenta open-source que retorna informações públicas, como lista de amigos e possíveis localizações, de perfís do Steam</a>
+    </p>
+</section>
+
+<section id="indexador-mensagens">
+    <h2>Indexadores de Serviço de Mensagens Instantâneas 💬</h2>
+    <h3>Grupos de WhatsApp</h3>
+    <details>
+        <summary>Indexadores WhatsApp</summary>
+        <ul>
+            <li><a href="https://gruposwhats.app/" target="_blank">Grupos WhatsApp</a></li>
+            <li><a href="https://buscagrupos.com.br/" target="_blank">Busca Grupos WhatsApp</a></li>
+        </ul>
+    </details>
+
+    <h3>Grupos de Telegram</h3>
+    <details>
+        <summary>Indexadores Telegram</summary>
+        <ul>
+            <li><a href="https://tgstat.com" target="_blank">TGStat</a></li>
+            <li><a href="https://telegram-group.com/en/#/" target="_blank">Grupos de Telegram</a></li>
+        </ul>
+    </details>
+</section>
+
+<section id="datasets">
+    <h2>Dados Abertos / Datasets 📊</h2>
+
+    <h3>Dados Abertos / Gov BR</h3>
+    <p>
+        Conjuntos de datasets disponibilizados pelo Governo Federal:
+        <a href="https://dados.gov.br/home" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Brasil.io</h3>
+    <p>
+        Repositório de dados públicos disponibilizados em formato acessível:
+        <a href="https://brasil.io/datasets/" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados MMA - Ministério do Meio Ambiente e Mudança do Clima</h3>
+    <p>
+        Datasets em formato aberto sobre a área ambiental disponibilizado pelo Ministério do Meio Ambiente:
+        <a href="https://dados.mma.gov.br/" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados Ibict - Instituto Brasileiro de Informação em Ciência e Tecnologia</h3>
+    <p>
+        O Dados Ibict é um repositório de dados abertos para promover a abertura de dados do IBICT:
+        <a href="https://dados.ibict.br/dataset" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados BCB - Banco Central Do Brasil</h3>
+    <p>
+        O Portal Brasileiro de Dados Abertos do Banco Central disponibiliza dados e informações públicas:
+        <a href="https://dadosabertos.bcb.gov.br/dataset" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados MTur - Ministério do Turismo</h3>
+    <p>
+        O Plano de Dados Abertos do MTur abrange os setores do turismo e da cultura:
+        <a href="https://dados.turismo.gov.br/dataset/" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados IBAMA - Instituto Brasileiro do Meio Ambiente</h3>
+    <p>
+        O IBAMA disponibiliza dados e informações públicas, relacionados à operação e fiscalização:
+        <a href="https://dadosabertos.ibama.gov.br/en/dataset/" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Microdados Inep - Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira</h3>
+    <p>
+        Os microdados do Inep reúnem informações detalhadas relacionadas às pesquisas e avaliações:
+        <a href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados PF - Polícia Federal</h3>
+    <p>
+        O trabalho de produção do PDA/PF consiste na elaboração do inventário de bases de dados:
+        <a href="https://www.gov.br/pf/pt-br/acesso-a-informacao/dados-abertos/plano-de-dados-abertos-2024-2026" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados CAPES - Coordenação de Aperfeiçoamento de Pessoal de Nível Superior</h3>
+    <p>
+        A primeira iniciativa da CAPES para a publicação de dados abertos foi a elaboração do Plano de Dados Abertos:
+        <a href="https://dadosabertos.capes.gov.br/dataset/" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados IBGE - Instituto Brasileiro de Geografia e Estatística</h3>
+    <p>
+        Acesso a conteúdos das pesquisas estruturais, censos e outras estatísticas:
+        <a href="https://www.ibge.gov.br/estatisticas/downloads-estatisticas.html" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados Prefeitura de Mogi das Cruzes</h3>
+    <p>
+        Portal da Prefeitura de Mogi das Cruzes com Dados Abertos da Administração Pública Municipal:
+        <a href="https://dados.mogidascruzes.sp.gov.br/dataset/" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados Alagoas SEPLAG - Secretaria de Estado do Planejamento, Gestão e Patrimônio</h3>
+    <p>
+        O Portal Alagoas em Dados oferece acesso a informações e estatísticas sobre o estado:
+        <a href="https://dados.al.gov.br/catalogo/dataset" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados MAPA - Ministério da Agricultura e Pecuária</h3>
+    <p>
+        O MAPA é responsável pela gestão das políticas públicas de estímulo à agropecuária:
+        <a href="https://dados.agricultura.gov.br/dataset" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados MJ - Ministério da Justiça</h3>
+    <p>
+        O Portal da Dados MJ disponibiliza Dados Abertos da Administração Pública no contexto de Justiça:
+        <a href="https://dados.mj.gov.br/dataset" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados Santa Catarina</h3>
+    <p>
+        O Portal de Dados Abertos do Estado de Santa Catarina é a plataforma oficial de publicações:
+        <a href="https://dados.sc.gov.br/" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados DNIT - Departamento Nacional de Infraestrutura de Transportes</h3>
+    <p>
+        O Plano de Dados Abertos do DNIT orienta as ações de abertura de dados:
+        <a href="https://servicos.dnit.gov.br/dadosabertos/" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados Prefeitura de São Paulo</h3>
+    <p>
+        O Portal de Dados Abertos da Prefeitura de São Paulo apresenta todos os dados disponíveis produzidos:
+        <a href="http://dados.prefeitura.sp.gov.br/dataset" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados Abertos do Estado de Pernambuco</h3>
+    <p>
+        O Portal de Dados Abertos do Estado de Pernambuco reúne conjuntos de dados dos órgãos do Poder Executivo Estadual:
+        <a href="https://dados.pe.gov.br/dataset" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados BNDES - Banco Nacional de Desenvolvimento Econômico e Social</h3>
+    <p>
+        O BNDES é uma empresa pública federal cujo objetivo é o financiamento de longo prazo:
+        <a href="https://dadosabertos.bndes.gov.br/dataset" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados Abertos do Estado de Minas Gerais</h3>
+    <p>
+        Conjuntos de dados documentados conforme as especificações Frictionless Data:
+        <a href="https://dados.mg.gov.br/dataset/" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados Abertos da Prefeitura de Belo Horizonte</h3>
+    <p>
+        O Portal de Dados Abertos da Prefeitura de Belo Horizonte é disponibilizado para consulta de dados e informações públicas:
+        <a href="https://dados.pbh.gov.br/dataset/" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados ANTT - Agência Nacional de Transportes Terrestres</h3>
+    <p>
+        O Portal de Dados Abertos da ANTT facilita a localização e utilização dos dados públicos:
+        <a href="https://dados.antt.gov.br/dataset" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados SESGO - Secretaria Estadual de Saúde de Goiás</h3>
+    <p>
+        Página dedicada aos dados da Secretaria Estadual de Saúde de Goiás:
+        <a href="https://dados.saude.go.gov.br/dataset/" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados SiBBr - Sistema de Informação sobre a Biodiversidade Brasileira</h3>
+    <p>
+        Infraestrutura nacional de dados em biodiversidade, organizando e disponibilizando informações:
+        <a href="https://collectory.sibbr.gov.br/collectory/datasets" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados CVM - Portal de Dados Abertos da Comissão de Valores Mobiliários</h3>
+    <p>
+        A CVM atua para garantir a integridade e promover o desenvolvimento do mercado de capitais:
+        <a href="https://dados.cvm.gov.br/dataset/" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Dados TCMGO - Portal oficial do Tribunal de Contas dos Municípios do Estado de Goiás</h3>
+    <p>
+        Para acessar os dados do TCMGO:
+        <a href="https://www.tcm.go.gov.br/Reports/browse/" target="_blank">Clique aqui.</a>
+    </p>
+</section>
+
+<section id="consulta-transporte-terrestre">
+    <h2>Consulta de Transporte Terrestre 🚗</h2>
+
+    <h3>Consulta de Licenciamento Veicular</h3>
+    <p>
+        Consulta para veículo no estado do Maranhão:
+        <a href="http://licenciamento.detran.ma.gov.br/Licenciamento/consulta/Home.xhtml" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Consulta de Bicicletas / São Paulo</h3>
+    <p>
+        Serviço online que permite verificar se uma bicicleta tem histórico de roubo ou furto:
+        <a href="https://www.ssp.sp.gov.br/consultabicicleta" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Consulta de Dados via Placa</h3>
+    <details>
+        <summary>Links de Consulta</summary>
+        <ul>
+            <li><a href="https://carfacts.com.br/ConsultaGratis" target="_blank">Car Facts</a></li>
+            <li><a href="https://www.qualveiculo.net/" target="_blank">Qual Veículo</a></li>
+            <li><a href="https://www.olhonocarro.com.br/" target="_blank">Olho no Carro</a></li>
+            <li><a href="https://www.consultarplaca.com.br/" target="_blank">Consultar Placa</a></li>
+            <li><a href="http://infocarrosp.com.br/" target="_blank">Info Carro SP</a></li>
+            <li><a href="https://www.iq.com.br/veiculos/consulta-placa/" target="_blank">IQ Veículos</a></li>
+            <li><a href="https://www.carcheck.com.br/" target="_blank">Car Check</a></li>
+            <li><a href="https://www.consultapelaplaca.com.br/" target="_blank">Consulta pela Placa</a></li>
+            <li><a href="https://site.bibipecas.com.br/home" target="_blank">Bibi Peças</a></li>
+            <li><a href="https://www.historicar.com.br/" target="_blank">Historicar</a></li>
+            <li><a href="https://www.keplaca.com" target="_blank">Ke Placa</a></li>
+            <li><a href="https://www.fipeplaca.com.br/" target="_blank">Fipe Placa</a></li>
+            <li><a href="https://placafipe.com" target="_blank">Placa Fipe</a></li>
+            <li><a href="https://placaipva.com.br" target="_blank">Placa IPVA</a></li>
+            <li><a href="https://www.tabelafipebrasil.com/placa" target="_blank">Tabela Fipe Brasil</a></li>
+            <li><a href="https://www.ipvabr.com.br/placa" target="_blank">IPVA Brasil</a></li>
+        </ul>
+    </details>
+
+    <h3>Consulta de Dados FIPE</h3>
+    <details>
+        <summary>Links de Consulta</summary>
+        <ul>
+            <li><a href="https://veiculos.fipe.org.br" target="_blank">Tabela FIPE</a></li>
+            <li><a href="https://www.tabelafipebrasil.com" target="_blank">Tabela FIPE Brasil</a></li>
+            <li><a href="https://www.tabelafipe.website" target="_blank">Tabela FIPE Website</a></li>
+            <li><a href="https://www.tabelafipemotos.com.br" target="_blank">Tabela Fipe Motos</a></li>
+            <li><a href="https://www.fipeveiculos.com.br" target="_blank">FIPE Veículos</a></li>
+            <li><a href="https://www.valortabelafipe.com.br" target="_blank">Valor Tabela FIPE</a></li>
+            <li><a href="https://veiculosfipe.org/" target="_blank">Veículos FIPE</a></li>
+            <li><a href="https://fipevalor.com.br/" target="_blank">FIPE Valor</a></li>
+        </ul>
+    </details>
+
+    <h3>Consulta Terminais Ônibus São Paulo</h3>
+    <p>
+        Informações da Secretaria Municipal de Transporte e Mobilidade Urbana (SPTRANS):
+        <a href="https://www.sptrans.com.br/terminais" target="_blank">Terminais SPTRANS</a> | 
+        <a href="https://sistemas.sptrans.com.br/PlanOperWeb/" target="_blank">Plan Oper Web</a>
+    </p>
+
+    <h3>Consulta Históricos de Ônibus</h3>
+    <p>
+        Rastreie registros históricos de ônibus em Brasil e diversos outros países:
+        <a href="https://onibusbrasil.com/placas" target="_blank">Ônibus Brasil</a>
+    </p>
+
+    <h3>Consulta Veículos Habilitados pela ANTT</h3>
+    <p>
+        Visualize os veículos habilitados pela ANTT ao transporte rodoviário internacional de cargas:
+        <a href="https://appweb1.antt.gov.br/scff/conPlaca.asp" target="_blank">Consulta ANTT</a>
+    </p>
+
+    <h3>Consulta Linhas de Ônibus</h3>
+    <p>
+        Consultar Linhas que Fazem Ligação entre Duas Localidades:
+        <a href="https://portal.antt.gov.br/linhas-de-onibus" target="_blank">Linhas de Ônibus ANTT</a>
+    </p>
+
+    <h3>Consulta Horários e Passagens Ônibus</h3>
+    <p>
+        O portal de pesquisa de horários e passagens de ônibus mais acessado do Brasil:
+        <a href="https://www.buscaonibus.com.br/" target="_blank">Busca Onibus</a>
+    </p>
+
+    <h3>Empresas Habilitadas</h3>
+    <p>
+        Empresas habilitadas para a prestação do serviço de transporte rodoviário coletivo:
+        <a href="https://dados.antt.gov.br/dataset/empresas-habilitadas" target="_blank">Empresas Habilitadas ANTT</a>
+    </p>
+
+    <h3>Consulta Pública de Transportadores</h3>
+    <p>
+        Registro Nacional de Transportadores Rodoviários de Cargas:
+        <a href="https://consultapublica.antt.gov.br/Site/ConsultaRNTRC.aspx/consultapublica" target="_blank">Consulta Pública ANTT</a>
+    </p>
+
+    <h3>Pesquisar no Portal de Dados Abertos da ANTT</h3>
+    <p>
+        A Política de Dados Abertos do Poder Executivo Federal:
+        <a href="https://dados.antt.gov.br/" target="_blank">Dados Abertos ANTT</a>
+    </p>
+    
+    <h3>Urbanização de Curitiba S/A (URBS) / Informações dos Táxis de Curitiba</h3>
+    <p>
+        Localização dos Pontos de Táxi em Curitiba:
+        <a href="https://www.urbs.curitiba.pr.gov.br/mobile/taxiLegal" target="_blank">Pontos de Táxi</a> |
+        <a href="https://urbs.curitiba.pr.gov.br/transporte/pontos-de-taxi" target="_blank">Mais informações</a>
+    </p>
+
+    <h3>Urbanização de Curitiba S/A (URBS) / Embarques e Desembarques da Rodoviária</h3>
+    <p>
+        Informações sobre Linhas Rodoviárias em Curitiba:
+        <a href="https://www.urbs.curitiba.pr.gov.br/mobile/monitorRod" target="_blank">Monitoração Rodoviária</a> |
+        <a href="https://urbs.curitiba.pr.gov.br/horario-de-onibus/rodoviaria" target="_blank">Horários Rodoviária</a>
+    </p>
+</section>
+<section id="tracking-viagens-onibus">
+    <h2>Tracking de Viagens de Ônibus 🚌</h2>
+
+    <h3>Onibus.info</h3>
+    <p>
+        Acompanhe ônibus de Joinville em tempo real:
+        <a href="https://onibus.info" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>SPTrans Olho Vivo</h3>
+    <p>
+        Localização dos ônibus, tempo de percurso e quais linhas se aproximam:
+        <a href="https://olhovivo.sptrans.com.br" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Urbanização de Curitiba S/A (URBS) / Monitoramento de Ônibus</h3>
+    <p>
+        Rastreamento de informações sobre transporte na cidade de Curitiba. É possível filtrar por linhas, rotas de ônibus, e posição de pontos e veículos.
+    </p>
+    <details>
+        <summary>Links de Acompanhamento</summary>
+        <ul>
+            <li><a href="https://www.urbs.curitiba.pr.gov.br/mobile/itibus" target="_blank">Linhas e Rotas</a></li>
+            <li><a href="https://www.urbs.curitiba.pr.gov.br/mobile/itibus6" target="_blank">Pontos e Veículos</a></li>
+            <li><a href="https://urbs.curitiba.pr.gov.br/horario-de-onibus" target="_blank">Horários de Ônibus</a></li>
+            <li><a href="https://www.urbs.curitiba.pr.gov.br/mobile/boletim" target="_blank">Boletim Informacional</a></li>
+            <li><a href="https://www.urbs.curitiba.pr.gov.br/mobile/cartao" target="_blank">Extrato do Cartão Transporte Avulso</a></li>
+        </ul>
+    </details>
+
+    <h3>Viação Ouro e Prata S/A, UneSul e TTL</h3>
+    <p>
+        Acompanhe uma viagem de ônibus usando parâmetros como Empresa, Data, número de reserva ou número de serviço:
+        <a href="https://rastreamento.viacaoouroeprata.com.br/" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Viação Águia Branca S.A.</h3>
+    <p>
+        Acompanhe uma viagem de ônibus usando o número de serviço:
+        <a href="https://acompanheaviagem.aguiabranca.com.br" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>FlixBus Transporte e Tecnologia do Brasil Ltda.</h3>
+    <p>
+        Acompanhe uma viagem de ônibus da empresa FlixBus usando parâmetros como saída, chegada e número de reserva:
+        <a href="https://www.flixbus.com.br/track/" target="_blank">Clique aqui.</a>
+    </p>
+</section>
+
+<section id="consulta-transporte-aereo">
+    <h2>Consulta de Transporte Aéreo 🛫</h2>
+
+    <h3>Consulta de Vôos via Infraero</h3>
+    <p>
+        As informações aqui fornecidas são obtidas diretamente das companhias aéreas. 
+        Não nos responsabilizamos por consequências resultantes de possíveis erros ou omissões:
+        <a href="http://voos.infraero.gov.br/voos/index.aspx" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Consulta de Vôos de Autoridades Brasileiras</h3>
+    <p>
+        Os dados incluem a autoridade solicitante, trajeto, data, horário de decolagem e de pouso, 
+        o motivo da solicitação, além da previsão do número de passageiros:
+        <a href="https://www.fab.mil.br/voos" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Consulta de Empresas e Aeronaves de Táxi-Aéreo</h3>
+    <p>
+        A ANAC disponibiliza uma consulta de empresas ou aeronaves de táxi-aéreo a todos os cidadãos interessados:
+        <a href="https://sistemas.anac.gov.br/voeseguro/" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Consulta de Nada Consta de Multas do CBAER</h3>
+    <p>
+        Consulte a situação de multas registradas no CBAER:
+        <a href="https://sistemas.anac.gov.br/nadaconsta/" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Consultas ao Registro Aeronáutico Brasileiro (RAB)</h3>
+    <p>
+        Todas as aeronaves civis brasileiras devem ser registradas na ANAC. O Registro Aeronáutico Brasileiro (RAB) é regulamentado por meio da Resolução ANAC nº 293/2013:
+    </p>
+    <details>
+        <summary>Links de Consulta</summary>
+        <ul>
+            <li><a href="https://sistemas.anac.gov.br/aeronaves/cons_rab.asp" target="_blank">Consulta RAB ANAC</a></li>
+            <li><a href="https://ais.cavok.in/rab/" target="_blank">Cavok RAB</a></li>
+        </ul>
+    </details>
+</section>
+
+<section id="cameras-online">
+    <h2>Câmeras Online 🎥</h2>
+
+    <h3>Projeto City Câmeras</h3>
+    <p>
+        O Projeto City Câmeras é um programa público da Prefeitura Municipal de São Paulo, 
+        que visa constituir uma ampla rede de videomonitoramento por meio de câmeras públicas e privadas:
+        <a href="https://www.citycameras.prefeitura.sp.gov.br/home" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Câmeras Cia. de Engenharia de Tráfego (CET)</h3>
+    <p>
+        Acompanhe as câmeras da CET para monitoramento de tráfego:
+        <a href="http://cameras.cetsp.com.br/" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Câmeras DER - Departamento de Estradas de Rodagem (DER)</h3>
+    <p>
+        Acesse o mapa de câmeras do DER:
+        <a href="http://www.der.sp.gov.br/WebSite/Servicos/ServicosOnline/CamerasOnlineMapa.aspx" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Windy - Serviço de Câmeras e Radar Meteorológico</h3>
+    <p>
+        Monitore câmeras e condições meteorológicas:
+        <a href="https://www.windy.com/pt/-Webcams/webcams?-16.994,-54.316,5" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Câmeras Rodovias Online</h3>
+    <p>
+        O site Rodovias Online é um serviço de utilidade pública que reúne visualizações de câmeras on-line:
+    </p>
+    <details>
+        <summary>Links de Rodovias Online</summary>
+        <ul>
+            <li><a href="http://www.rodoviasonline.com.br/rodovias-der-sp/" target="_blank">DER SP</a></li>
+            <li><a href="http://www.rodoviasonline.com.br/cameras-ao-vivo-das-rodovias-do-estado-do-parana/" target="_blank">Paraná</a></li>
+            <li><a href="https://www.rodoviasonline.com.br/cameras-ao-vivo-nas-rodovias-do-rio-grande-de-sul-daer-rs/" target="_blank">Rio Grande do Sul</a></li>
+            <li><a href="https://www.rodoviasonline.com.br/rodovia-governador-ney-braga-br-277/" target="_blank">BR-277</a></li>
+            <li><a href="https://www.rodoviasonline.com.br/cameras-ao-vivo-viapar-parana/" target="_blank">Viapar Paraná</a></li>
+        </ul>
+    </details>
+
+    <h3>Câmeras Concessionária Tamoios</h3>
+    <p>
+        Visualize câmeras da Concessionária Tamoios:
+    </p>
+    <details>
+        <summary>Links de Câmeras Tamoios</summary>
+        <ul>
+            <li><a href="https://concessionariatamoios.com.br/cameras/ver/12" target="_blank">Câmera 12</a></li>
+            <li><a href="https://concessionariatamoios.com.br/cameras/ver/14" target="_blank">Câmera 14</a></li>
+            <li><a href="https://concessionariatamoios.com.br/cameras/ver/10" target="_blank">Câmera 10</a></li>
+            <li><a href="https://concessionariatamoios.com.br/cameras/ver/9" target="_blank">Câmera 9</a></li>
+            <li><a href="https://concessionariatamoios.com.br/cameras/ver/8" target="_blank">Câmera 8</a></li>
+            <li><a href="https://concessionariatamoios.com.br/cameras/ver/13" target="_blank">Câmera 13</a></li>
+        </ul>
+    </details>
+
+    <h3>Câmeras Concessionária EcoRodovias</h3>
+    <p>
+        Monitore as condições das vias da EcoRodovias:
+    </p>
+    <details>
+        <summary>Links de Câmeras EcoRodovias</summary>
+        <ul>
+            <li><a href="https://www.ecovias.com.br/condicoes-da-via#condition-camera" target="_blank">Condições da Via</a></li>
+            <li><a href="https://www.ecovias.com.br/boletim/camera/2" target="_blank">Balança Imigrantes Planalto</a></li>
+            <li><a href="http://site.ecovias.com.br/cameras/vpon/0kamera1.jpg" target="_blank">Entrada Imigrantes Planalto</a></li>
+            <li><a href="https://www.ecovias.com.br/boletim/camera/4" target="_blank">Pedágio Imigrantes</a></li>
+            <li><a href="http://site.ecovias.com.br/cameras/vpon/0kamera6.jpg" target="_blank">Planalto Imigrantes</a></li>
+            <li><a href="https://www.ecovias.com.br/boletim/camera/6" target="_blank">Trecho Serra Imigrantes</a></li>
+            <li><a href="https://www.ecovias.com.br/boletim/camera/7" target="_blank">Balança Imigrantes Baixada</a></li>
+            <li><a href="https://www.ecovias.com.br/boletim/camera/8" target="_blank">Acesso Imigrantes Baixada</a></li>
+            <li><a href="https://www.ecovias.com.br/boletim/camera/15" target="_blank">Interligação Planalto</a></li>
+            <li><a href="https://www.ecovias.com.br/boletim/camera/1" target="_blank">Trevo Cubatão</a></li>
+            <li><a href="https://www.ecovias.com.br/boletim/camera/11" target="_blank">Anchieta Ribeirão dos Couros</a></li>
+            <li><a href="https://www.ecovias.com.br/boletim/camera/12" target="_blank">Serra Anchieta</a></li>
+            <li><a href="https://www.ecovias.com.br/boletim/camera/13" target="_blank">Anchieta Trevo da Volkswagen</a></li>
+            <li><a href="https://www.ecovias.com.br/boletim/camera/14" target="_blank">Pedágio Anchieta</a></li>
+            <li><a href="https://www.ecovias.com.br/boletim/camera/16" target="_blank">Entrada Santos</a></li>
+            <li><a href="https://www.ecovias.com.br/boletim/camera/9" target="_blank">Pedágio Guarujá</a></li>
+            <li><a href="https://www.ecovias.com.br/boletim/camera/10" target="_blank">Pedágio São Vicente</a></li>
+        </ul>
+    </details>
+
+    <h3>Câmeras DAER - Rio Grande do Sul</h3>
+    <p>
+        Acesse a câmera de Santa Maria:
+        <a href="https://daer.kopp.com.br/ftp/imagem.php?id=Santa_Maria" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Câmeras Governo de Santa Catarina</h3>
+    <p>
+        Consulte as câmeras online do Governo de SC:
+    </p>
+    <details>
+        <summary>Links de Câmeras SC</summary>
+        <ul>
+            <li><a href="https://www.ssp.sc.gov.br/dtic/index.php/cameras/cameras-online" target="_blank">Câmeras Online</a></li>
+            <li><a href="https://www.ssp.sc.gov.br/dtic/index.php/cameras/cameras-online-florianopolis" target="_blank">Florianópolis</a></li>
+            <li><a href="https://www.ssp.sc.gov.br/dtic/index.php/cameras/cameras-online-florianopolis-trindade" target="_blank">Florianópolis Trindade</a></li>
+            <li><a href="https://www.ssp.sc.gov.br/dtic/index.php/cameras/cameras-online-florianopolis-2" target="_blank">Florianópolis 2</a></li>
+            <li><a href="https://www.ssp.sc.gov.br/dtic/index.php/cameras/cameras-online-sao-jose" target="_blank">São José</a></li>
+            <li><a href="https://www.ssp.sc.gov.br/dtic/index.php/cameras/cameras-online-biguacu" target="_blank">Biguaçu</a></li>
+        </ul>
+    </details>
+
+    <h3>Câmeras da Prefeitura de João Pessoa - PB (SEMOB)</h3>
+    <p>
+        Monitore o trânsito em João Pessoa:
+        <a href="http://transito.gtrans.com.br/semobjp/index.php" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Câmeras da Prefeitura de Recife - PE (CTTU)</h3>
+    <p>
+        Acompanhe as câmeras da CTTU:
+        <a href="http://transito.gtrans.com.br/cttupe/index.php/mapa" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Câmeras do Centro Integrado de Operações de Belém do Pará (Segup no Trânsito)</h3>
+    <p>
+        Acesse as câmeras de Belém do Pará:
+        <a href="https://www.ciop.pa.gov.br/aovivo/index.html" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Câmeras da BHTRANS (Em beta)</h3>
+    <p>
+        Acompanhe o trânsito em Belo Horizonte:
+        <a href="http://infotrafego.pbh.gov.br/info_trafego_cameras.html" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Câmeras do Aeroporto Internacional de São Paulo/Guarulhos - SGBR</h3>
+    <p>
+        Veja a transmissão ao vivo do aeroporto:
+        <a href="https://www.youtube.com/watch?v=iA_TQxQS9Sw" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Câmera do Aeroporto de Congonhas - São Paulo - SBSP FULL ATC</h3>
+    <p>
+        Acompanhe a movimentação no aeroporto:
+        <a href="https://www.youtube.com/watch?v=rKM8wSr3ORU" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Câmera do Aeroporto Santos Dumont - Rio de Janeiro - SBRJ FULL ATC</h3>
+    <p>
+        Veja a transmissão ao vivo do aeroporto:
+        <a href="https://www.youtube.com/watch?v=EPGfz0QibL0" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Câmera do Aeroporto Galeão - Rio de Janeiro - SBGL</h3>
+    <p>
+        Acesse a câmera do aeroporto:
+        <a href="https://www.youtube.com/watch?v=dS2eAlS9UBE" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Câmera do Aeroporto Internacional de Florianópolis - SBFL Com Fonia</h3>
+    <p>
+        Acompanhe ao vivo o aeroporto:
+        <a href="https://www.youtube.com/watch?v=xLen1r-iwfU" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Câmera do Aeroporto da Pampulha - Belo Horizonte - 24 horas (BHZ)(SBBH)</h3>
+    <p>
+        Veja a movimentação ao vivo:
+        <a href="https://www.youtube.com/watch?v=NuyRxze2iUo" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Câmera do Aeroporto do Recife - SBRF</h3>
+    <p>
+        Acompanhe ao vivo as condições do aeroporto:
+        <a href="https://www.youtube.com/watch?v=BhTY_GHvSmg" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Câmeras de Obras em Andamento de Mato Grosso (SINFRA)</h3>
+    <p>
+        Consulte o monitoramento de obras:
+        <a href="https://mapas.sinfra.mt.gov.br/portal/apps/sites/#/central-infra-20-2-1/pages/monitoramento-de-obras" target="_blank">Clique aqui.</a>
+    </p>
+</section>
+
+<section id="outras-buscas">
+    <h2>Outras Buscas 🔎</h2>
+    <h3>Antecedentes Criminais</h3>
+    <p>Certidão online de antecedentes criminais:
+        <a href="https://servicos.dpf.gov.br/antecedentes-criminais/certidao" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Busca de Falecidos/Óbitos</h3>
+    <p>Consultar registros de falecidos:
+        <a href="https://www.falecidosnobrasil.org.br/" target="_blank">Clique aqui.</a>
+    </p>
+
+    <h3>Consulta de Embarcações Navais</h3>
+    <p>Consultar informações navais:
+        <a href="https://www.mercante.transportes.gov.br/g36127/html/Manife/EmbarcConsul.html?noCampo=cdIrin" target="_blank">Clique aqui.</a>
+    </p>
+    
+    <h3>Informações sobre um endereço de e-mail</h3>
+    <p>Permite recuperar vários elementos:
+        <a href="https://www.predictasearch.com" target="_blank">Clique aqui para acessar.</a>
+    </p>
+</section>
+<section id="categorias-dominios-br">
+    <h2>Categorias de Domínios .br 📰</h2>
+    <p>
+        Abaixo estão listadas todas as categorias de domínio .br oferecidas pelo Registro.br. 
+        Os domínios de pessoa física e profissionais liberais só podem ser registrados por um titular com CPF. 
+        Os domínios de pessoa jurídica devem ser associados a um CNPJ. Já os domínios genéricos e de cidades podem ser registrados por CPF ou CNPJ.
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>TLD</th>
+                <th>Destinado a</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>APP.BR</td>
+                <td>Genéricos</td>
+                <td>Aplicativos</td>
+            </tr>
+            <tr>
+                <td>ART.BR</td>
+                <td>Genéricos</td>
+                <td>Artes: música, pintura, folclore</td>
+            </tr>
+            <tr>
+                <td>COM.BR</td>
+                <td>Genéricos</td>
+                <td>Atividades comerciais</td>
+            </tr>
+            <tr>
+                <td>DEV.BR</td>
+                <td>Genéricos</td>
+                <td>Desenvolvedores e Plataformas de Desenvolvimento</td>
+            </tr>
+            <tr>
+                <td>ECO.BR</td>
+                <td>Genéricos</td>
+                <td>Atividades com foco eco-ambiental</td>
+            </tr>
+            <tr>
+                <td>EMP.BR</td>
+                <td>Genéricos</td>
+                <td>Pequenas e micro-empresas</td>
+            </tr>
+            <tr>
+                <td>LOG.BR</td>
+                <td>Genéricos</td>
+                <td>Transportes e Logística</td>
+            </tr>
+            <tr>
+                <td>NET.BR</td>
+                <td>Genéricos</td>
+                <td>Atividades comerciais</td>
+            </tr>
+            <tr>
+                <td>ONG.BR</td>
+                <td>Genéricos</td>
+                <td>Atividades não governamentais individuais ou associativas</td>
+            </tr>
+            <tr>
+                <td>SEG.BR</td>
+                <td>Genéricos</td>
+                <td>Segurança</td>
+            </tr>
+            <tr>
+                <td>TEC.BR</td>
+                <td>Genéricos</td>
+                <td>Tecnologia</td>
+            </tr>
+            <tr>
+                <td>EDU.BR</td>
+                <td>Universidades</td>
+                <td>Instituições de ensino superior</td>
+            </tr>
+            <tr>
+                <td>BLOG.BR</td>
+                <td>Pessoas Físicas</td>
+                <td>Web logs</td>
+            </tr>
+            <tr>
+                <td>FLOG.BR</td>
+                <td>Pessoas Físicas</td>
+                <td>Foto logs</td>
+            </tr>
+            <tr>
+                <td>NOM.BR</td>
+                <td>Pessoas Físicas</td>
+                <td>Pessoas Físicas</td>
+            </tr>
+            <tr>
+                <td>VLOG.BR</td>
+                <td>Pessoas Físicas</td>
+                <td>Vídeo logs</td>
+            </tr>
+            <tr>
+                <td>WIKI.BR</td>
+                <td>Pessoas Físicas</td>
+                <td>Páginas do tipo 'wiki'</td>
+            </tr>
+            <tr>
+                <td>ADM.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Administradores</td>
+            </tr>
+            <tr>
+                <td>ADV.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Advogados</td>
+            </tr>
+            <tr>
+                <td>ARQ.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Arquitetos</td>
+            </tr>
+            <tr>
+                <td>ATO.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Atores</td>
+            </tr>
+            <tr>
+                <td>BIB.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Bibliotecários / Biblioteconomistas</td>
+            </tr>
+            <tr>
+                <td>BIO.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Biólogos</td>
+            </tr>
+            <tr>
+                <td>BMD.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Biomédicos</td>
+            </tr>
+            <tr>
+                <td>CIM.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Corretores</td>
+            </tr>
+            <tr>
+                <td>CNG.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Cenógrafos</td>
+            </tr>
+            <tr>
+                <td>CNT.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Contadores</td>
+            </tr>
+            <tr>
+                <td>COZ.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Profissionais de Gastronomia</td>
+            </tr>
+            <tr>
+                <td>DES.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Designers e Desenhistas</td>
+            </tr>
+            <tr>
+                <td>DET.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Detetives / Investigadores Particulares</td>
+            </tr>
+            <tr>
+                <td>ECN.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Economistas</td>
+            </tr>
+            <tr>
+                <td>ENF.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Profissionais de Enfermagem</td>
+            </tr>
+            <tr>
+                <td>ENG.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Engenheiros</td>
+            </tr>
+            <tr>
+                <td>ETI.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Especialista em Tecnologia da Informação</td>
+            </tr>
+            <tr>
+                <td>FND.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Fonoaudiólogos</td>
+            </tr>
+            <tr>
+                <td>FOT.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Fotógrafos</td>
+            </tr>
+            <tr>
+                <td>FST.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Fisioterapeutas</td>
+            </tr>
+            <tr>
+                <td>GEO.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Geólogos</td>
+            </tr>
+            <tr>
+                <td>GGF.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Geógrafos</td>
+            </tr>
+            <tr>
+                <td>JOR.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Jornalistas</td>
+            </tr>
+            <tr>
+                <td>LEL.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Leiloeiros</td>
+            </tr>
+            <tr>
+                <td>MAT.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Matemáticos e Estatísticos</td>
+            </tr>
+            <tr>
+                <td>MED.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Médicos</td>
+            </tr>
+            <tr>
+                <td>MUS.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Músicos</td>
+            </tr>
+            <tr>
+                <td>NOT.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Notários</td>
+            </tr>
+            <tr>
+                <td>NTR.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Nutricionistas</td>
+            </tr>
+            <tr>
+                <td>ODO.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Dentistas</td>
+            </tr>
+            <tr>
+                <td>PPG.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Publicitários e profissionais da área de propaganda e marketing</td>
+            </tr>
+            <tr>
+                <td>PRO.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Professores</td>
+            </tr>
+            <tr>
+                <td>PSC.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Psicólogos</td>
+            </tr>
+            <tr>
+                <td>QSL.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Rádio amadores</td>
+            </tr>
+            <tr>
+                <td>REP.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Representantes Comerciais</td>
+            </tr>
+            <tr>
+                <td>SLG.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Sociólogos</td>
+            </tr>
+            <tr>
+                <td>TAXI.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Taxistas</td>
+            </tr>
+            <tr>
+                <td>TEO.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Teólogos</td>
+            </tr>
+            <tr>
+                <td>TRD.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Tradutores</td>
+            </tr>
+            <tr>
+                <td>VET.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Veterinários</td>
+            </tr>
+            <tr>
+                <td>ZLG.BR</td>
+                <td>Profissionais Liberais</td>
+                <td>Zoólogos</td>
+            </tr>
+            <tr>
+                <td>9GUACU.BR</td>
+                <td>Cidades</td>
+                <td>Nova Iguaçu</td>
+            </tr>
+            <tr>
+                <td>ABC.BR</td>
+                <td>Cidades</td>
+                <td>Região ABC Paulista</td>
+            </tr>
+            <tr>
+                <td>AJU.BR</td>
+                <td>Cidades</td>
+                <td>Aracaju</td>
+            </tr>
+            <tr>
+                <td>ANANI.BR</td>
+                <td>Cidades</td>
+                <td>Ananindeua</td>
+            </tr>
+            <tr>
+                <td>APARECIDA.BR</td>
+                <td>Cidades</td>
+                <td>Aparecida</td>
+            </tr>
+            <tr>
+                <td>BARUERI.BR</td>
+                <td>Cidades</td>
+                <td>Barueri</td>
+            </tr>
+            <tr>
+                <td>BELEM.BR</td>
+                <td>Cidades</td>
+                <td>Belém</td>
+            </tr>
+            <tr>
+                <td>BHZ.BR</td>
+                <td>Cidades</td>
+                <td>Belo Horizonte</td>
+            </tr>
+            <tr>
+                <td>BOAVISTA.BR</td>
+                <td>Cidades</td>
+                <td>Boa Vista</td>
+            </tr>
+            <tr>
+                <td>BSB.BR</td>
+                <td>Cidades</td>
+                <td>Brasília</td>
+            </tr>
+            <tr>
+                <td>CAMPINAGRANDE.BR</td>
+                <td>Cidades</td>
+                <td>Campina Grande</td>
+            </tr>
+            <tr>
+                <td>CAMPINAS.BR</td>
+                <td>Cidades</td>
+                <td>Campinas</td>
+            </tr>
+            <tr>
+                <td>CAXIAS.BR</td>
+                <td>Cidades</td>
+                <td>Caxias</td>
+            </tr>
+            <tr>
+                <td>CONTAGEM.BR</td>
+                <td>Cidades</td>
+                <td>Contagem</td>
+            </tr>
+            <tr>
+                <td>CUIABA.BR</td>
+                <td>Cidades</td>
+                <td>Cuiabá</td>
+            </tr>
+            <tr>
+                <td>CURITIBA.BR</td>
+                <td>Cidades</td>
+                <td>Curitiba</td>
+            </tr>
+            <tr>
+                <td>FEIRA.BR</td>
+                <td>Cidades</td>
+                <td>Feira de Santana</td>
+            </tr>
+            <tr>
+                <td>FLORIPA.BR</td>
+                <td>Cidades</td>
+                <td>Florianópolis</td>
+            </tr>
+            <tr>
+                <td>FORTAL.BR</td>
+                <td>Cidades</td>
+                <td>Fortaleza</td>
+            </tr>
+            <tr>
+                <td>FOZ.BR</td>
+                <td>Cidades</td>
+                <td>Foz do Iguaçu</td>
+            </tr>
+            <tr>
+                <td>GOIANIA.BR</td>
+                <td>Cidades</td>
+                <td>Goiânia</td>
+            </tr>
+            <tr>
+                <td>GRU.BR</td>
+                <td>Cidades</td>
+                <td>Guarulhos</td>
+            </tr>
+            <tr>
+                <td>JAB.BR</td>
+                <td>Cidades</td>
+                <td>Jaboatão dos Guararapes</td>
+            </tr>
+            <tr>
+                <td>JAMPA.BR</td>
+                <td>Cidades</td>
+                <td>João Pessoa</td>
+            </tr>
+            <tr>
+                <td>JDF.BR</td>
+                <td>Cidades</td>
+                <td>Juiz de Fora</td>
+            </tr>
+            <tr>
+                <td>JOINVILLE.BR</td>
+                <td>Cidades</td>
+                <td>Joinville</td>
+            </tr>
+            <tr>
+                <td>LONDRINA.BR</td>
+                <td>Cidades</td>
+                <td>Londrina</td>
+            </tr>
+            <tr>
+                <td>MACAPA.BR</td>
+                <td>Cidades</td>
+                <td>Macapá</td>
+            </tr>
+            <tr>
+                <td>MACEIO.BR</td>
+                <td>Cidades</td>
+                <td>Maceió</td>
+            </tr>
+            <tr>
+                <td>MANAUS.BR</td>
+                <td>Cidades</td>
+                <td>Manaus</td>
+            </tr>
+            <tr>
+                <td>MARINGA.BR</td>
+                <td>Cidades</td>
+                <td>Maringá</td>
+            </tr>
+            <tr>
+                <td>MORENA.BR</td>
+                <td>Cidades</td>
+                <td>Campo Grande</td>
+            </tr>
+            <tr>
+                <td>NATAL.BR</td>
+                <td>Cidades</td>
+                <td>Natal</td>
+            </tr>
+            <tr>
+                <td>NITEROI.BR</td>
+                <td>Cidades</td>
+                <td>Niterói</td>
+            </tr>
+            <tr>
+                <td>OSASCO.BR</td>
+                <td>Cidades</td>
+                <td>Osasco</td>
+            </tr>
+            <tr>
+                <td>PALMAS.BR</td>
+                <td>Cidades</td>
+                <td>Palmas</td>
+            </tr>
+            <tr>
+                <td>POA.BR</td>
+                <td>Cidades</td>
+                <td>Porto Alegre</td>
+            </tr>
+            <tr>
+                <td>PVH.BR</td>
+                <td>Cidades</td>
+                <td>Porto Velho</td>
+            </tr>
+            <tr>
+                <td>RECIFE.BR</td>
+                <td>Cidades</td>
+                <td>Recife</td>
+            </tr>
+            <tr>
+                <td>RIBEIRAO.BR</td>
+                <td>Cidades</td>
+                <td>Ribeirão</td>
+            </tr>
+            <tr>
+                <td>RIO.BR</td>
+                <td>Cidades</td>
+                <td>Rio de Janeiro</td>
+            </tr>
+            <tr>
+                <td>RIOBRANCO.BR</td>
+                <td>Cidades</td>
+                <td>Rio Branco</td>
+            </tr>
+            <tr>
+                <td>RIOPRETO.BR</td>
+                <td>Cidades</td>
+                <td>São José do Rio Preto</td>
+            </tr>
+            <tr>
+                <td>SALVADOR.BR</td>
+                <td>Cidades</td>
+                <td>Salvador</td>
+            </tr>
+            <tr>
+                <td>SAMPA.BR</td>
+                <td>Cidades</td>
+                <td>São Paulo</td>
+            </tr>
+            <tr>
+                <td>SANTAMARIA.BR</td>
+                <td>Cidades</td>
+                <td>Santa Maria</td>
+            </tr>
+            <tr>
+                <td>SANTOANDRE.BR</td>
+                <td>Cidades</td>
+                <td>Santo André</td>
+            </tr>
+            <tr>
+                <td>SAOBERNARDO.BR</td>
+                <td>Cidades</td>
+                <td>São Bernardo do Campo</td>
+            </tr>
+            <tr>
+                <td>SAOGONCA.BR</td>
+                <td>Cidades</td>
+                <td>São Gonçalo</td>
+            </tr>
+            <tr>
+                <td>SJC.BR</td>
+                <td>Cidades</td>
+                <td>São José dos Campos</td>
+            </tr>
+            <tr>
+                <td>SLZ.BR</td>
+                <td>Cidades</td>
+                <td>São Luís</td>
+            </tr>
+            <tr>
+                <td>SOROCABA.BR</td>
+                <td>Cidades</td>
+                <td>Sorocaba</td>
+            </tr>
+            <tr>
+                <td>THE.BR</td>
+                <td>Cidades</td>
+                <td>Teresina</td>
+            </tr>
+            <tr>
+                <td>UDI.BR</td>
+                <td>Cidades</td>
+                <td>Uberlândia</td>
+            </tr>
+            <tr>
+                <td>VIX.BR</td>
+                <td>Cidades</td>
+                <td>Vitória</td>
+            </tr>
+            <tr>
+                <td>##########</td>
+                <td>Pessoas Jurídicas</td>
+                <td>SEM RESTRIÇÃO</td>
+            </tr>
+            <tr>
+                <td>AGR.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Empresas agrícolas, fazendas</td>
+            </tr>
+            <tr>
+                <td>ESP.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Esporte em geral</td>
+            </tr>
+            <tr>
+                <td>ETC.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Empresas que não se enquadram nas outras categorias</td>
+            </tr>
+            <tr>
+                <td>FAR.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Farmácias e drogarias</td>
+            </tr>
+            <tr>
+                <td>IMB.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Imobiliárias</td>
+            </tr>
+            <tr>
+                <td>IND.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Indústrias</td>
+            </tr>
+            <tr>
+                <td>INF.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Meios de informação (rádios, jornais, bibliotecas, etc.)</td>
+            </tr>
+            <tr>
+                <td>RADIO.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Empresas que queiram enviar áudio pela rede</td>
+            </tr>
+            <tr>
+                <td>REC.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Atividades de entretenimento, diversão, jogos, etc.</td>
+            </tr>
+            <tr>
+                <td>SRV.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Empresas prestadoras de serviços</td>
+            </tr>
+            <tr>
+                <td>TMP.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Eventos temporários, como feiras e exposições</td>
+            </tr>
+            <tr>
+                <td>TUR.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Empresas da área de turismo</td>
+            </tr>
+            <tr>
+                <td>TV.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Empresas de radiodifusão ou transmissão via Internet de sons e imagens</td>
+            </tr>
+            <tr>
+                <td>##########</td>
+                <td>Pessoas Jurídicas</td>
+                <td>COM RESTRIÇÃO</td>
+            </tr>
+            <tr>
+                <td>AM.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Empresas de radiodifusão sonora</td>
+            </tr>
+            <tr>
+                <td>COOP.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Cooperativas</td>
+            </tr>
+            <tr>
+                <td>FM.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Empresas de radiodifusão sonora</td>
+            </tr>
+            <tr>
+                <td>G12.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Instituições de ensino de primeiro e segundo grau</td>
+            </tr>
+            <tr>
+                <td>GOV.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Instituições do governo federal</td>
+            </tr>
+            <tr>
+                <td>MIL.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Forças Armadas Brasileiras</td>
+            </tr>
+            <tr>
+                <td>ORG.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Instituições não governamentais sem fins lucrativos</td>
+            </tr>
+            <tr>
+                <td>PSI.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Provedores de serviço Internet</td>
+            </tr>
+            <tr>
+                <td>##########</td>
+                <td>Pessoas Jurídicas</td>
+                <td>DNSSEC OBRIGATÓRIO</td>
+            </tr>
+            <tr>
+                <td>B.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Bancos</td>
+            </tr>
+            <tr>
+                <td>DEF.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Defensorias Públicas</td>
+            </tr>
+            <tr>
+                <td>JUS.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Instituições do Poder Judiciário</td>
+            </tr>
+            <tr>
+                <td>LEG.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Instituições do Poder Legislativo</td>
+            </tr>
+            <tr>
+                <td>MP.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Instituições do Ministério Público</td>
+            </tr>
+            <tr>
+                <td>TC.BR</td>
+                <td>Pessoas Jurídicas</td>
+                <td>Tribunais de Contas</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3>ASN disponíveis do Whois público do registro NIR Nic.br</h3>
+    <p>
+        Compilação de informações de origem do prefixo ASN disponíveis do Whois público do registro NIR Nic.br. 
+        Campos separados por pipe:
+    </p>
+    <pre>
+        ASN|OrgName|OrgID|prefixos...
+    </pre>
+    <p>
+        Diretório com histórico de arquivos: 
+        <a href="https://ftp.registro.br/pub/numeracao/origin/" target="_blank">Clique aqui.</a>
+    </p>
+    <p>
+        Lista atualizada: 
+        <a href="https://ftp.registro.br/pub/numeracao/origin/nicbr-asn-blk-latest.txt" target="_blank">Clique aqui.</a>
+    </p>
+</section>
+
+<section id="estados-br">
+    <h2>Categorias por Estados Brasileiros 🇧🇷</h2>
+    <h3>Acre (AC)</h3>
+    <p>Consultas AC:</p>
+    <ul>
+        <li><a href="https://pc.ac.gov.br/certidao-de-antecedentes-criminais/" target="_blank">Antecedente criminal</a></li>
+        <li><a href="https://www.detran.ac.gov.br/consultar-autorizacao-de-estampagem/" target="_blank">Consulta estapagem</a></li>
+        <li><a href="http://sefaznet.ac.gov.br/nfe/consulta.xhtml" target="_blank">Nota Fiscal</a></li>
+    </ul>
+
+    <h3>Alagoas (AL)</h3>
+    <ul>
+        <li><a href="https://www.sef.al.gov.br/sistemas/nfe/consultranfe.asp" target="_blank">Consulta Nota Fiscal</a></li>
+    </ul>
+
+    <h3>Amapá (AP)</h3>
+    <ul>
+        <li><a href="https://www.sef.ap.gov.br/website/IMPOSTO-DE-RENDA/IRPF/Consulta-IRPF.htm" target="_blank">Consulta IRPF</a></li>
+    </ul>
+
+    <h3>Amazonas (AM)</h3>
+    <ul>
+        <li><a href="https://www.sef.am.gov.br/sicosg/servicos/" target="_blank">Consulta Serviços SEF</a></li>
+    </ul>
+
+    <h3>Bahia (BA)</h3>
+    <ul>
+        <li><a href="https://www.sef.ba.gov.br/tributos/faq/" target="_blank">FAQ Trânsito de veículos</a></li>
+    </ul>
+
+    <!-- Continue com os outros estados conforme necessário -->
+</section>
+
+<section id="autores">
+    <h2>Autores 👔</h2>
+    <p><img src="assets/logo_profile.png" width="20%" alt="Logo do Perfil"/></p>
+    <ul>
+
+        <li><strong>Cleiton P. (MrCl0wnLab)</strong> - <a href="https://twitter.com/MrCl0wnLab" target="_blank">Twitter</a>, <a href="https://github.com/MrCl0wnLab" target="_blank">GitHub</a></li>
+        <li><strong>Diego (c4nh0t0)</strong> - <a href="https://twitter.com/C4nh0t0GH" target="_blank">Twitter</a>, <a href="https://github.com/c4nh0t0" target="_blank">GitHub</a></li>
+    </ul>
+</section>
+
+<section id="creditos">
+    <h2>Créditos 👏</h2>
+    <p>A todas as instituições públicas governamentais e iniciativas privadas que disponibilizaram os links para consulta.</p>
+    <p>A todos que de alguma forma contribuíram para o compartilhamento de links e tricks de consulta nos websites.</p>
+    <p><span style="color: #000;">w3irdguy 1337h4x0r</span></p>
+</section>
+
+</body>
+</html>
